@@ -1,0 +1,21 @@
+name: Lint Code
+description: Lint the Python code via Ruff linting
+
+
+using: "composite"
+
+
+
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+
+    - name: Ruff Check
+      run: |
+        python -m pip install ruff
+        ruff check --output-format=github

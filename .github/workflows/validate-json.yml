@@ -1,0 +1,8 @@
+name: validate-json.yml
+on:
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+

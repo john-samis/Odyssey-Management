@@ -1,0 +1,6 @@
+name: publish-google-cloud-run.yml
+
+# TODO: Expand later on
+on:
+
+jobs:
