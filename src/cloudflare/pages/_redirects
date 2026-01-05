@@ -1,9 +1,4 @@
 # Uses HTTP Protocol Redirects Status Code (302)
 # Destination URL to the Latest Attendance Form
-#
-# Stable QR target -> latest attendance form
- /form https://docs.google.com/forms/d/e/1FAIpQLSc9uM6ehJ-mHFM4_PpvhCskvHGuyYZP-XyCuiuiyTHCbIfAig/viewform 302
-
-# Hub page
- /redirects /redirects.html 302
-
+/form  https://docs.google.com/forms/d/e/1FAIpQLSc9uM6ehJ-mHFM4_PpvhCskvHGuyYZP-XyCuiuiyTHCbIfAig/viewform 302
+/form/ https://docs.google.com/forms/d/e/1FAIpQLSc9uM6ehJ-mHFM4_PpvhCskvHGuyYZP-XyCuiuiyTHCbIfAig/viewform 302

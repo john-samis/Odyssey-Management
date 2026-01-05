@@ -27,7 +27,7 @@ class QRCodeConfig:
     base_url: str
     secret_key: str
 
-    logo_path: Path = field(default_factory=lambda: Path("static/Odyssey_Logo.png"))
+    logo_path: Path = field(default_factory=lambda: Path("src/static/Odyssey_Logo.png"))
     qr_size: int = 800
     logo_scale: float = 0.25
     border_frac: float = 0.03
