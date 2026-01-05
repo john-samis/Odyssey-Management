@@ -3,13 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redirect Hub</title>
+  <meta name="color-scheme" content="light dark" />
+  <title>Odyssey Management — Link Hub</title>
+
+  <style>
+    :root { --bg:#0b0c10; --card:#141622; --text:#e9ecf1; --muted:#aab2c0; --border: rgba(255,255,255,.12); }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f6f7fb; --card:#ffffff; --text:#101323; --muted:#5b6475; --border: rgba(16,19,35,.12); }
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 28px 16px 44px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; box-shadow: 0 8px 28px rgba(0,0,0,.18); }
+    h1 { margin: 0 0 10px; font-size: 1.4rem; }
+    p { margin: 10px 0; color: var(--muted); line-height: 1.45; }
+    ul { margin: 12px 0 0; padding-left: 18px; }
+    li { margin: 10px 0; }
+    a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .btnrow { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    a.btn { display:inline-flex; padding: 12px 14px; border-radius: 12px; text-decoration:none; border:1px solid var(--border); font-weight:600; }
+    a.btn.primary { background: rgba(92, 153, 255, .18); border-color: rgba(92, 153, 255, .35); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+  </style>
 </head>
-<body style="font-family:system-ui; max-width:720px; margin:40px auto; padding:0 16px;">
-  <h1>Link Redirect Hub</h1>
-  <ul>
-    <li><a href="/form">Today’s attendance form</a> (stable)</li>
-    <li><a href="/src/static">Site Landing page</a></li>
-  </ul>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Link Hub</h1>
+      <p>Useful stable links for attendance.</p>
+
+      <ul>
+        <li><a href="/form">Today’s attendance form</a> <span class="mono">(stable: /form)</span></li>
+        <li><a href="/">Landing page</a></li>
+      </ul>
+
+      <div class="btnrow">
+        <a class="btn primary" href="/form">Open today’s form</a>
+        <a class="btn" href="/">Back to landing</a>
+      </div>
+
+      <p style="margin-top:16px;">
+        Targets are updated by editing the <span class="mono">_redirects</span> file in the repo.
+      </p>
+    </div>
+  </div>
 </body>
 </html>
