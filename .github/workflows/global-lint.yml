@@ -3,8 +3,9 @@ name: Ruff Lint
 on:
   workflow_dispatch:
 
-  push:
-    branches: [ main ]
+  # Come back to after
+  #push:
+   # branches: [ main ]
 
   pull_request:
     types: [ opened, synchronize, reopened ]

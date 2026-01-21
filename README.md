@@ -3,6 +3,8 @@ A repository to handle some of the stateless compute offerings for the Hellenic 
 Including data pipelines, CI/CD principles and applications, cloud hosting (Google cloud run), Cloudflare pages. 
 [Will be significantly expanded upon]
 
+**NOTE**: Development currently hidden for sensitive data until DATA SAFETY CAN BE ENSURED. WILL UPDATE ACCORDINGLY
+
 
 Needs expanding on Google Cloud Run for headless compute
 

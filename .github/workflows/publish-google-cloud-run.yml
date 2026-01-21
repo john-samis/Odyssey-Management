@@ -2,5 +2,17 @@ name: publish-google-cloud-run.yml
 
 # TODO: Expand later on
 on:
+  workflow_dispatch:
+
 
 jobs:
+  publish-container-gcr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: placeholder
+        shell: bash
+        run: |
+          echo "placeholder"

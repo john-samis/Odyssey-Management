@@ -8,7 +8,7 @@ from src.utilities.email_utilities.email_templates import HTMLEmailTemplate
 
 
 def main() -> None:
-    ATTACHMENT_PATH: Path = Path("attendance_jan06.xlsx")
+    ATTACHMENT_PATH: Path = Path("attendance_jan20.xlsx")
     recipients: list[str] = [
         "jsamis311@gmail.com",
         "sokos.greg@gmail.com",

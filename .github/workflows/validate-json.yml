@@ -10,12 +10,12 @@ on:
 
 jobs:
   validate-json:
+    strategy:
+      fail-fast: true
+      matrix:
+        files: [ "src/google_apis_forms/attendance-form_v0.json" ]
+
     runs-on: ubuntu-latest
-
-    # Add more as needed, SEPARATED BY SPACES
-    env:
-      JSON_FILES: "src/google_apis_forms/attendance-form_v0.json"
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -23,8 +23,4 @@ jobs:
       - name: Verify JSON Syntax
         shell: bash
         run: |
-          for file in ${{ env.JSON_FILES }}; do
-            echo "Validating $file"
-            jq empty $file
-          end
-          
+            jq empty ${{ matrix.files }}
