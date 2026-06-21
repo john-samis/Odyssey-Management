@@ -1,30 +1,14 @@
-FROM ubuntu:24.04
-LABEL authors=jsamis
+FROM python:3.12-slim
 
-WORKDIR /src
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
 
-RUN apt update && apt upgrade --no-recomends-install \
-    ca-certificates \
-    python3 \
-    python3-dotenv \
-    python3-venv \
+WORKDIR /app
 
+COPY pyproject.toml README.md ./
+COPY src/odyssey_attendance ./src/odyssey_attendance
 
-RUN python -m pip install --upgrade pip
+RUN python -m pip install --upgrade pip && python -m pip install .
 
-COPY . .
-
-
-
-
-ENTRYPOINT ["python"]
-
-
-
-
-
-
-
-
-
-
+ENTRYPOINT ["odyssey-attendance-report"]

@@ -202,6 +202,10 @@ cython_debug/
 *.docx
 *.txt
 
+# Locally generated OAuth credentials and reports
+secrets/
+attendance_*.xlsx
+
 
 
 

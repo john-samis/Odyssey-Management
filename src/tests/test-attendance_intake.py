@@ -1,1 +1,0 @@
-""" Test the Data Intake process used for the attendance lists. """

@@ -1,0 +1,48 @@
+name: Deploy attendance job
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile"
+      - "pyproject.toml"
+      - "src/odyssey_attendance/**"
+      - ".github/workflows/deploy-attendance-job.yml"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+      REGION: ${{ vars.GCP_REGION }}
+      REPOSITORY: ${{ vars.GCP_ARTIFACT_REPOSITORY }}
+      RUNTIME_SERVICE_ACCOUNT: ${{ vars.GCP_RUNTIME_SERVICE_ACCOUNT }}
+      CONFIG_SECRET: ${{ vars.ATTENDANCE_CONFIG_SECRET }}
+      GMAIL_TOKEN_SECRET: ${{ vars.GMAIL_OAUTH_TOKEN_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOYER_SERVICE_ACCOUNT }}
+      - uses: google-github-actions/setup-gcloud@v2
+      - name: Build container
+        run: |
+          gcloud builds submit \
+            --project="$PROJECT_ID" \
+            --tag="$REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/odyssey-attendance:$GITHUB_SHA"
+      - name: Deploy Cloud Run Job
+        run: |
+          gcloud run jobs deploy odyssey-attendance \
+            --project="$PROJECT_ID" \
+            --region="$REGION" \
+            --image="$REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/odyssey-attendance:$GITHUB_SHA" \
+            --service-account="$RUNTIME_SERVICE_ACCOUNT" \
+            --set-secrets="ATTENDANCE_CONFIG_JSON=$CONFIG_SECRET:latest,GMAIL_OAUTH_TOKEN_JSON=$GMAIL_TOKEN_SECRET:latest" \
+            --max-retries=0 \
+            --task-timeout=5m
