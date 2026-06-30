@@ -1,4 +1,4 @@
 # Uses HTTP Protocol Redirects Status Code (302)
 # Replace this target once with the responder URL of the permanent attendance form.
-/form  https://docs.google.com/forms/d/e/1FAIpQLSeHSoCMzzgydwzI3uFWUsCR5Se3D782h_5wzfiZjyJ8T50wMw/viewform 302
-/form/ https://docs.google.com/forms/d/e/1FAIpQLSeHSoCMzzgydwzI3uFWUsCR5Se3D782h_5wzfiZjyJ8T50wMw/viewform 302
+/form  https://docs.google.com/forms/d/e/1FAIpQLSerF_xsNSnR2yDnKf6m4FRfp1Pf2rjkATgLzj468qBi4P6Zfw/viewform 302
+/form/ https://docs.google.com/forms/d/e/1FAIpQLSerF_xsNSnR2yDnKf6m4FRfp1Pf2rjkATgLzj468qBi4P6Zfw/viewform 302
