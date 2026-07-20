@@ -1,4 +1,4 @@
 # Uses HTTP Protocol Redirects Status Code (302)
 # Destination URL to the Latest Attendance Form
-/form https://docs.google.com/forms/d/e/1FAIpQLSef0ESLsWIaatmzwFCvBU1U7KMWzQ6e3TbDw7R7WnDxB1DygA/viewform 302
-/form/ https://docs.google.com/forms/d/e/1FAIpQLSef0ESLsWIaatmzwFCvBU1U7KMWzQ6e3TbDw7R7WnDxB1DygA/viewform 302
+/form https://docs.google.com/forms/d/e/1FAIpQLSftShi8R0F8XcCXay8EEu0RCK6WfPP-QUVdCtQj48HtbH0MdA/viewform 302
+/form/ https://docs.google.com/forms/d/e/1FAIpQLSftShi8R0F8XcCXay8EEu0RCK6WfPP-QUVdCtQj48HtbH0MdA/viewform 302
